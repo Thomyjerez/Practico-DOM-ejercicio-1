@@ -19,12 +19,32 @@ function numeroRandom (min,max){
 function juego(){
     numeroMagico = numeroRandom (1, 100),
     console.log (numeroMagico)
-    bntEnviar.className ="btn btn-primary btn-lg my-5 text-center"
-    bntEnviar.innerHTML= 'El juego comenzo'
-    bntEnviar.disabled = true 
+    btnComenzar.className ="btn btn-primary btn-lg my-5 text-center"
+    btnComenzar.innerHTML= 'El juego comenzo'
+    btnComenzar.disabled = true 
 
     let formJuego = document.querySelector('#formJuego')
     formJuego.reset()
+    
+}
+function numeroIngresado(){
+    
+    let numeroIngresado = document.querySelector('#numeroIngresado').value
+    let mensaje = document.querySelector('#msjAlert')
+    if (numeroIngresado == numeroMagico) {
+        mensaje.className = "alert alert-primary"
+        mensaje.innerHTML = '!Adivinaste el numero¡'
+        bntEnviar.className = "btn btn-primary"
+        bntEnviar.innerHTML = 'Volver a empezar'
+        bntEnviar.disabled = false;
+        
+    }else if (numeroIngresado > numeroMagico){
+        mensaje.className = "alert alert-primary"
+        mensaje.innerHTML = 'Numero incorrecto, el numero es menor, intente adivinar de nuevo'
+    }else {
+        mensaje.className = "alert alert-primary"
+        mensaje.innerHTML = 'Numero incorrecto, el numero es mayor, intente adivinar de nuevo'
+    }
 }
 
 

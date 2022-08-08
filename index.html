@@ -19,29 +19,36 @@
   </head>
   <body>
     <main>
-      <section>
-        <article class="container">
-          <h1 class="numeroMagicos text-center py-4">Numeros Magicos</h1>
-          <button
-            type="button"
-            class="btn btn-primary btn-lg my-5 text-center"
-            id="btnEnviar"
-            onclick="juego()"
-          >
-            Comenzar el juego
-          </button>
-          <form>
-            <div class="mb-3">
-              <label for="InputPassword1" class="form-label" id="formJuego"
-                >Ingrese un numero:</label
-              >
-              <input type="number" class="form-control" id="InputNumber" />
-            </div>
-            <button type="submit" class="btn btn-primary" id="bntEnviar">
+      <section class="container py-4">
+        <h1 class="display-3 text-center text-light">!Numero magicos¡</h1>
+        <br />
+      </section>
+      <section class="container text-center my-5">
+        <button
+          class="btn btn-primary btn-lg my-5 text-center"
+          id="btnComenzar"
+          type="button"
+          onclick="juego()"
+        >
+          Comenzar juego
+        </button>
+        <form class="my-4 " id="formJuego" onsubmit="numeroIngresado(event)">
+          <div class="form-text mb-4">Ingrese un numero del 1 al 100</div>
+          <div>
+            <input
+              type="number"
+              placeholder="Ingrese un numero"
+              class="form-control"
+              id="numeroIngresado"
+            />
+            <button class="btn btn-primary my-5" type="submit" id="btnEnviar">
               Enviar
             </button>
-          </form>
-        </article>
+          </div>
+        </form>
+        <div class="alert alert-primary" role="alert" id="msjAlert">
+          !Numero correcto¡
+        </div>
       </section>
     </main>
     <footer></footer>
