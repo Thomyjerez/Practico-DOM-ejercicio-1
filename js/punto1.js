@@ -7,45 +7,42 @@
 // Cuando el usuario adivine el numero mostrar un mensaje indicando al usuario que
 //  adivino el numero.
 
-let numeroMagico;
-let bntEnviar = document.querySelector('#btnEnviar')
-console.log(bntEnviar)
+let numeroMagico = 0;
+let formulario = document.querySelector('#formulario');
 
-function numeroRandom (min,max){
+// agregar eventos desde java
+formulario.addEventListener('submit', adivinar)
 
-    return Math.floor(Math.random()*(max -min) + min)
-}
 
-function juego(){
-    numeroMagico = numeroRandom (1, 100),
-    console.log (numeroMagico)
-    btnComenzar.className ="btn btn-primary btn-lg my-5 text-center"
-    btnComenzar.innerHTML= 'El juego comenzo'
-    btnComenzar.disabled = true 
-
-    let formJuego = document.querySelector('#formJuego')
-    formJuego.reset()
+function comenzarJuego(){
+    numeroAdivinar = Math.floor(Math.random()*(6 - 1 + 1) + 1)
+    console.log(numeroAdivinar)
     
 }
-function numeroIngresado(){
+// submit para que no recargue la pagina para que se haga todo el trabajo
+// objeto E o event tiene info
+
+
+function adivinar(e){
+    e.preventDefault();
+    let numeroIngresado = document.querySelector('#inputAdivinar').value
     
-    let numeroIngresado = document.querySelector('#numeroIngresado').value
-    let mensaje = document.querySelector('#msjAlert')
-    if (numeroIngresado == numeroMagico) {
-        mensaje.className = "alert alert-primary"
-        mensaje.innerHTML = '!Adivinaste el numero¡'
-        bntEnviar.className = "btn btn-primary"
-        bntEnviar.innerHTML = 'Volver a empezar'
-        bntEnviar.disabled = false;
-        
-    }else if (numeroIngresado > numeroMagico){
-        mensaje.className = "alert alert-primary"
-        mensaje.innerHTML = 'Numero incorrecto, el numero es menor, intente adivinar de nuevo'
-    }else {
-        mensaje.className = "alert alert-primary"
-        mensaje.innerHTML = 'Numero incorrecto, el numero es mayor, intente adivinar de nuevo'
+    if(numeroIngresado === numeroAdivinar){
+        alert ('Adivinaste!, el numero es ' +numeroMagico )
+    }else if (numeroIngresado < numeroAdivinar){
+        alert ('Tu numero ' +numeroIngresado+ ' es mayor al numero magico ')
+    }else{
+        alert ('Tu numero ' +numeroIngresado+ 'es menor al numero magico ')
+
     }
+   
 }
+
+
+
+
+
+
 
 
 

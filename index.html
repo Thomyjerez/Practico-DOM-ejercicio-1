@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,41 +15,23 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
 
-    <title>Projecto de DOM</title>
+    <title>Numeros Magicos</title>
   </head>
   <body>
-    <main>
-      <section class="container py-4">
-        <h1 class="display-3 text-center text-light">!Numero magicos¡</h1>
-        <br />
-      </section>
-      <section class="container text-center my-5">
-        <button
-          class="btn btn-primary btn-lg my-5 text-center"
-          id="btnComenzar"
-          type="button"
-          onclick="juego()"
-        >
-          Comenzar juego
-        </button>
-        <form class="my-4 " id="formJuego" onsubmit="numeroIngresado(event)">
-          <div class="form-text mb-4">Ingrese un numero del 1 al 100</div>
-          <div>
-            <input
-              type="number"
-              placeholder="Ingrese un numero"
-              class="form-control"
-              id="numeroIngresado"
-            />
-            <button class="btn btn-primary my-5" type="submit" id="btnEnviar">
-              Enviar
-            </button>
+    <main class="container">
+      <h1 class="text-center my-5">Numeros Magicos</h1>
+      <hr>
+      <section>
+        <button class="btn btn-primary my-2" onclick="comenzarJuego()">Comenzar el juego</button>
+        <form class="my-5" id="formulario">
+          <div class="d-flex ">
+            <input type="number" id="inputAdivinar" class="form-control" placeholder="Ingrese un numero">
+            <button class="btn btn-outline-primary" type="submit">Adivinar</button>
           </div>
+          
         </form>
-        <div class="alert alert-primary" role="alert" id="msjAlert">
-          !Numero correcto¡
-        </div>
       </section>
+
     </main>
     <footer></footer>
     <script
