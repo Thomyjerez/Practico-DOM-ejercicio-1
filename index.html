@@ -22,7 +22,7 @@
       <h1 class="text-center my-5">Numeros Magicos</h1>
       <hr>
       <section>
-        <button class="btn btn-primary my-2" onclick="comenzarJuego()">Comenzar el juego</button>
+        <button class="btn btn-primary my-2" onclick="comenzarJuego()" id="comenzarBtn">Comenzar el juego</button>
         <form class="my-5" id="formulario">
           <div class="d-flex ">
             <input type="number" id="inputAdivinar" class="form-control" placeholder="Ingrese un numero">
@@ -30,6 +30,9 @@
           </div>
           
         </form>
+        <div class="alert alert-primary" role="alert" id="msjAlert">
+
+        </div>
       </section>
 
     </main>

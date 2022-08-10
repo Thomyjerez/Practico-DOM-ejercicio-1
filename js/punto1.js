@@ -7,7 +7,7 @@
 // Cuando el usuario adivine el numero mostrar un mensaje indicando al usuario que
 //  adivino el numero.
 
-let numeroMagico = 0;
+let numeroAdivinar = 0;
 let formulario = document.querySelector('#formulario');
 
 // agregar eventos desde java
@@ -15,25 +15,31 @@ formulario.addEventListener('submit', adivinar)
 
 
 function comenzarJuego(){
-    numeroAdivinar = Math.floor(Math.random()*(6 - 1 + 1) + 1)
-    console.log(numeroAdivinar)
+    numeroAdivinar = Math.floor(Math.random()*(6-1+1) + 1)
+    let comenzarBtn = document.querySelector('#comenzarBtn')
+    comenzarBtn.className = 'btn btn-primary my-2'
+    comenzarBtn.innerHTML = 'El juego a comenzado!'
     
 }
 // submit para que no recargue la pagina para que se haga todo el trabajo
 // objeto E o event tiene info
 
-
 function adivinar(e){
     e.preventDefault();
-    let numeroIngresado = document.querySelector('#inputAdivinar').value
-    
-    if(numeroIngresado === numeroAdivinar){
-        alert ('Adivinaste!, el numero es ' +numeroMagico )
+    let numeroIngresado = document.querySelector('#inputAdivinar').value;
+    let mensaje = document.querySelector('#msjAlert')
+    if(numeroIngresado == numeroAdivinar){
+        mensaje.className = 'alert alert-primary'
+        mensaje.innerHTML = '¡Adivinaste!, el numero ingresado es: ' +numeroIngresado
+        comenzarBtn.className = 'btn btn-primary my-2'
+        comenzarBtn.innerHTML = 'Comenzar el juego'
     }else if (numeroIngresado < numeroAdivinar){
-        alert ('Tu numero ' +numeroIngresado+ ' es mayor al numero magico ')
+        mensaje.className = 'alert alert-primary'
+        mensaje.innerHTML = 'El numero que ingresaste es mayor al numero magico'
     }else{
-        alert ('Tu numero ' +numeroIngresado+ 'es menor al numero magico ')
-
+        mensaje.className = 'alert alert-primary'
+        mensaje.innerHTML = 'El numero que ingresaste es menor al numero magico'
+       
     }
    
 }
